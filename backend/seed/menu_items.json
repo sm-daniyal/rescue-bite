@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "restaurant_id": 1,
+    "name": "South Indian Special Thali",
+    "base_price": 90,
+    "category": "Meals",
+    "is_vegetarian": true
+  },
+  {
+    "id": 2,
+    "restaurant_id": 1,
+    "name": "Masala Dosa",
+    "base_price": 55,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 3,
+    "restaurant_id": 1,
+    "name": "Bisi Bele Bath",
+    "base_price": 60,
+    "category": "Rice",
+    "is_vegetarian": true
+  },
+  {
+    "id": 4,
+    "restaurant_id": 1,
+    "name": "Set Dosa with Sagu",
+    "base_price": 50,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 5,
+    "restaurant_id": 2,
+    "name": "Executive Veg Meals",
+    "base_price": 110,
+    "category": "Meals",
+    "is_vegetarian": true
+  },
+  {
+    "id": 6,
+    "restaurant_id": 2,
+    "name": "Paneer Butter Masala Meal Box",
+    "base_price": 140,
+    "category": "Combos",
+    "is_vegetarian": true
+  },
+  {
+    "id": 7,
+    "restaurant_id": 2,
+    "name": "Curd Rice & Pickle",
+    "base_price": 50,
+    "category": "Rice",
+    "is_vegetarian": true
+  },
+  {
+    "id": 8,
+    "restaurant_id": 2,
+    "name": "Ghee Roast Dosa",
+    "base_price": 70,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 9,
+    "restaurant_id": 3,
+    "name": "Idli Vada Combo",
+    "base_price": 45,
+    "category": "Breakfast",
+    "is_vegetarian": true
+  },
+  {
+    "id": 10,
+    "restaurant_id": 3,
+    "name": "Poori Saagu (3 pcs)",
+    "base_price": 50,
+    "category": "Breakfast",
+    "is_vegetarian": true
+  },
+  {
+    "id": 11,
+    "restaurant_id": 3,
+    "name": "Khara Bath & Kesari Bath",
+    "base_price": 50,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 12,
+    "restaurant_id": 3,
+    "name": "Filter Coffee",
+    "base_price": 20,
+    "category": "Beverages",
+    "is_vegetarian": true
+  },
+  {
+    "id": 13,
+    "restaurant_id": 4,
+    "name": "Chicken Mughlai Biryani",
+    "base_price": 190,
+    "category": "Biryani",
+    "is_vegetarian": false
+  },
+  {
+    "id": 14,
+    "restaurant_id": 4,
+    "name": "Butter Chicken with 2 Naan",
+    "base_price": 180,
+    "category": "Combos",
+    "is_vegetarian": false
+  },
+  {
+    "id": 15,
+    "restaurant_id": 4,
+    "name": "Veg Kadai with 2 Roti",
+    "base_price": 130,
+    "category": "Combos",
+    "is_vegetarian": true
+  },
+  {
+    "id": 16,
+    "restaurant_id": 4,
+    "name": "Jeera Rice & Dal Tadka",
+    "base_price": 110,
+    "category": "Rice",
+    "is_vegetarian": true
+  },
+  {
+    "id": 17,
+    "restaurant_id": 5,
+    "name": "Hyderabadi Chicken Biryani",
+    "base_price": 175,
+    "category": "Biryani",
+    "is_vegetarian": false
+  },
+  {
+    "id": 18,
+    "restaurant_id": 5,
+    "name": "Chicken Kebab (6 pcs)",
+    "base_price": 140,
+    "category": "Starters",
+    "is_vegetarian": false
+  },
+  {
+    "id": 19,
+    "restaurant_id": 5,
+    "name": "Egg Dum Biryani",
+    "base_price": 130,
+    "category": "Biryani",
+    "is_vegetarian": false
+  },
+  {
+    "id": 20,
+    "restaurant_id": 5,
+    "name": "Veg Dum Biryani",
+    "base_price": 110,
+    "category": "Biryani",
+    "is_vegetarian": true
+  },
+  {
+    "id": 21,
+    "restaurant_id": 6,
+    "name": "Udupi Special Full Meals",
+    "base_price": 100,
+    "category": "Meals",
+    "is_vegetarian": true
+  },
+  {
+    "id": 22,
+    "restaurant_id": 6,
+    "name": "Rava Onion Dosa",
+    "base_price": 65,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 23,
+    "restaurant_id": 6,
+    "name": "Mangalore Buns (2 pcs)",
+    "base_price": 40,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 24,
+    "restaurant_id": 6,
+    "name": "Filter Coffee & Mysore Pak",
+    "base_price": 35,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 25,
+    "restaurant_id": 7,
+    "name": "Quick Lunch Thali",
+    "base_price": 70,
+    "category": "Meals",
+    "is_vegetarian": true
+  },
+  {
+    "id": 26,
+    "restaurant_id": 7,
+    "name": "Maddur Vada (2 pcs)",
+    "base_price": 30,
+    "category": "Snacks",
+    "is_vegetarian": true
+  },
+  {
+    "id": 27,
+    "restaurant_id": 7,
+    "name": "Chow Chow Bath",
+    "base_price": 45,
+    "category": "Breakfast",
+    "is_vegetarian": true
+  },
+  {
+    "id": 28,
+    "restaurant_id": 7,
+    "name": "Lemon Rice",
+    "base_price": 40,
+    "category": "Rice",
+    "is_vegetarian": true
+  },
+  {
+    "id": 29,
+    "restaurant_id": 8,
+    "name": "Malnad Akki Roti with Chutney",
+    "base_price": 60,
+    "category": "Traditional",
+    "is_vegetarian": true
+  },
+  {
+    "id": 30,
+    "restaurant_id": 8,
+    "name": "Kayi Kadubu Meal",
+    "base_price": 85,
+    "category": "Traditional",
+    "is_vegetarian": true
+  },
+  {
+    "id": 31,
+    "restaurant_id": 8,
+    "name": "Neer Dosa with Veg Kurma",
+    "base_price": 70,
+    "category": "Traditional",
+    "is_vegetarian": true
+  },
+  {
+    "id": 32,
+    "restaurant_id": 8,
+    "name": "Filter Tea",
+    "base_price": 15,
+    "category": "Beverages",
+    "is_vegetarian": true
+  }
+]

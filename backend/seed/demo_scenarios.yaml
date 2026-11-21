@@ -1,0 +1,51 @@
+scenarios:
+  scenario_a:
+    name: "Lunch Rescue"
+    description: "Post-lunch peak surplus clearance. Student reserves from campus during 1:00 PM break."
+    restaurant_id: 5
+    restaurant_name: "Biryani Paradise"
+    item_id: 17
+    item_name: "Hyderabadi Chicken Biryani"
+    base_price: 175
+    surplus_quantity: 8
+    avg_daily_sold: 12.0
+    window_minutes: 45
+    score: 0.88
+    cached_gemini_response:
+      discount_pct: 51
+      reasoning: "Post-lunch peak surplus of 8 portions with 45-min window. 51% discount maximises clearance probability before afternoon break ends."
+
+  scenario_b:
+    name: "Evening Snack Break Bell"
+    description: "Evening break flash deal trigger at 4:30 PM for high perishability snack inventory."
+    restaurant_id: 3
+    restaurant_name: "Meenakshi Bhavan Darshini"
+    item_id: 9
+    item_name: "Idli Vada Combo"
+    base_price: 45
+    surplus_quantity: 15
+    avg_daily_sold: 14.0
+    window_minutes: 30
+    score: 0.79
+    cached_gemini_response:
+      discount_pct: 38
+      reasoning: "Evening break window. High shelf-life urgency for prepared morning snacks. 38% discount clears inventory rapidly."
+
+  scenario_c:
+    name: "Counter Stockout Rejection Flow"
+    description: "Restaurant-side manual rejection with auditable reason code when walk-in customers clear stock."
+    restaurant_id: 2
+    restaurant_name: "Sri Venkateshwara Grand"
+    item_id: 5
+    item_name: "Executive Veg Meals"
+    base_price: 110
+    surplus_quantity: 4
+    avg_daily_sold: 10.0
+    window_minutes: 35
+    score: 0.72
+    cached_gemini_response:
+      discount_pct: 45
+      reasoning: "Counter overflow clearance. High student footfall expected near campus."
+    demo_action:
+      simulate_rejection: true
+      rejection_reason: "item_unavailable"

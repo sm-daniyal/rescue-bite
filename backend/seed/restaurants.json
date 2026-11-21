@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Hotel Samrat Ashok",
+    "lat": 13.9315,
+    "lng": 75.5692,
+    "cuisine_type": "South Indian",
+    "avg_prep_time_min": 8,
+    "reliability_score": 0.96
+  },
+  {
+    "id": 2,
+    "name": "Sri Venkateshwara Grand",
+    "lat": 13.9284,
+    "lng": 75.5670,
+    "cuisine_type": "South Indian",
+    "avg_prep_time_min": 5,
+    "reliability_score": 0.94
+  },
+  {
+    "id": 3,
+    "name": "Meenakshi Bhavan Darshini",
+    "lat": 13.9340,
+    "lng": 75.5715,
+    "cuisine_type": "Darshini",
+    "avg_prep_time_min": 4,
+    "reliability_score": 0.98
+  },
+  {
+    "id": 4,
+    "name": "Hotel Jewel Rock",
+    "lat": 13.9352,
+    "lng": 75.5740,
+    "cuisine_type": "North Indian",
+    "avg_prep_time_min": 15,
+    "reliability_score": 0.92
+  },
+  {
+    "id": 5,
+    "name": "Biryani Paradise",
+    "lat": 13.9270,
+    "lng": 75.5655,
+    "cuisine_type": "North Indian",
+    "avg_prep_time_min": 12,
+    "reliability_score": 0.90
+  },
+  {
+    "id": 6,
+    "name": "Udupi Sri Krishna Sagar",
+    "lat": 13.9328,
+    "lng": 75.5702,
+    "cuisine_type": "South Indian",
+    "avg_prep_time_min": 6,
+    "reliability_score": 0.95
+  },
+  {
+    "id": 7,
+    "name": "Sri Guru Darshini",
+    "lat": 13.9265,
+    "lng": 75.5688,
+    "cuisine_type": "Darshini",
+    "avg_prep_time_min": 3,
+    "reliability_score": 0.97
+  },
+  {
+    "id": 8,
+    "name": "Malnad Kitchen",
+    "lat": 13.9360,
+    "lng": 75.5760,
+    "cuisine_type": "South Indian",
+    "avg_prep_time_min": 10,
+    "reliability_score": 0.91
+  }
+]

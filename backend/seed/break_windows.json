@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "college_id": 1,
+    "label": "Morning Break",
+    "start_time": "10:30",
+    "end_time": "10:45",
+    "days_of_week": "1,2,3,4,5"
+  },
+  {
+    "id": 2,
+    "college_id": 1,
+    "label": "Lunch Break",
+    "start_time": "13:00",
+    "end_time": "14:00",
+    "days_of_week": "1,2,3,4,5"
+  },
+  {
+    "id": 3,
+    "college_id": 1,
+    "label": "Evening Break",
+    "start_time": "16:30",
+    "end_time": "16:45",
+    "days_of_week": "1,2,3,4,5"
+  }
+]

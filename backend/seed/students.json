@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Sharma",
+    "college_id": 1,
+    "department": "Computer Science & Engineering",
+    "notification_pref": true,
+    "is_vegetarian": false,
+    "max_budget": 150
+  },
+  {
+    "id": 2,
+    "name": "Priya Kulkarni",
+    "college_id": 1,
+    "department": "Electronics & Communication",
+    "notification_pref": true,
+    "is_vegetarian": true,
+    "max_budget": 100
+  },
+  {
+    "id": 3,
+    "name": "Mohammed Zeeshan",
+    "college_id": 1,
+    "department": "Mechanical Engineering",
+    "notification_pref": true,
+    "is_vegetarian": false,
+    "max_budget": 180
+  },
+  {
+    "id": 4,
+    "name": "Sneha Patil",
+    "college_id": 1,
+    "department": "Civil Engineering",
+    "notification_pref": true,
+    "is_vegetarian": true,
+    "max_budget": 120
+  },
+  {
+    "id": 5,
+    "name": "Abhishek Gowda",
+    "college_id": 1,
+    "department": "Information Science",
+    "notification_pref": true,
+    "is_vegetarian": true,
+    "max_budget": 90
+  }
+]
