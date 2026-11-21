@@ -9,7 +9,7 @@ export type SSEEvent =
   | { type: 'break_bell'; deal_count: number; deals: FlashDeal[] }
   | { type: 'new_reservation'; reservation: Reservation }
   | { type: 'reservation_update'; reservation: Reservation }
-  | { type: string; [key: string]: unknown }
+  | { type: 'ping' | 'generic'; payload?: unknown }
 
 export type SSEConnectionStatus = 'live' | 'reconnecting' | 'disconnected'
 
