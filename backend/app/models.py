@@ -84,6 +84,7 @@ class SurplusEvent(Base):
     score: Mapped[float] = mapped_column(Float, nullable=False)
 
     restaurant: Mapped["Restaurant"] = relationship(back_populates="surplus_events")
+    item: Mapped["MenuItem"] = relationship()
     flash_deal: Mapped[Optional["FlashDeal"]] = relationship(back_populates="surplus_event", uselist=False)
 
     __table_args__ = (

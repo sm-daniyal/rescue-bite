@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.database import create_all_tables
+from app.routers import deals, reservations, restaurants, sse
 
 
 @asynccontextmanager
@@ -39,10 +40,9 @@ async def health() -> dict[str, str]:
     return {"status": "ok", "env": settings.environment}
 
 
-# Routers — uncomment as each is implemented
-# from app.routers import deals, reservations, restaurants, sse, demo
-# app.include_router(deals.router, prefix="/deals", tags=["deals"])
-# app.include_router(reservations.router, prefix="/reservations", tags=["reservations"])
-# app.include_router(restaurants.router, prefix="/restaurants", tags=["restaurants"])
-# app.include_router(sse.router, prefix="/sse", tags=["sse"])
-# app.include_router(demo.router, prefix="/demo", tags=["demo"])
+# Routers
+app.include_router(deals.router, prefix="/deals", tags=["deals"])
+app.include_router(reservations.router, prefix="/reservations", tags=["reservations"])
+app.include_router(restaurants.router, prefix="/restaurants", tags=["restaurants"])
+app.include_router(sse.router, prefix="/sse", tags=["sse"])
+# demo router will be enabled in Step 8 (Demo Hardening)
