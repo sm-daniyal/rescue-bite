@@ -30,7 +30,7 @@ export const BreakBellToast: React.FC<BreakBellToastProps> = ({
 
         <div className="flex-1">
           <Toast.Title className="flex items-center gap-1.5 text-sm font-bold tracking-tight">
-            <span>🔔 Break Bell Fired!</span>
+            <span>Break Bell Fired</span>
             <span className="rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-semibold uppercase">
               {breakLabel}
             </span>

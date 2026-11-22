@@ -49,17 +49,18 @@ export function App() {
         <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-45px)] border-x border-stone-200">
           {/* Left Column: Student Feed (7 cols) */}
           <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-stone-200 bg-white overflow-y-auto">
-            <div className="bg-orange-50/50 border-b border-orange-100 px-4 py-1.5 text-center text-xs font-semibold text-orange-800">
-              📱 Student Smartphone View (JNNCE Centroid)
+            <div className="bg-orange-50/70 border-b border-orange-100 px-4 py-2 text-center text-xs font-semibold text-orange-900 flex items-center justify-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-600 animate-pulse" />
+              <span>Student Live Feed • JNNCE Centroid View</span>
             </div>
-            <StudentFeed studentId={1} studentName="Rahul Sharma" />
+            <StudentFeed studentId={1} studentName="Rahul Sharma" isCompact={true} />
           </div>
 
           {/* Right Column: Restaurant Partner Ops (5 cols) */}
           <div className="lg:col-span-5 bg-stone-50/60 p-4 lg:p-6 overflow-y-auto">
-            <div className="mb-4 rounded-xl bg-stone-900 text-white px-4 py-2 text-xs flex items-center justify-between">
-              <span className="font-bold">🏪 Restaurant Merchant Terminal</span>
-              <span className="text-[10px] text-stone-400">Live SSE Synced</span>
+            <div className="mb-4 rounded-xl bg-stone-900 text-white px-4 py-2.5 text-xs flex items-center justify-between shadow-xs">
+              <span className="font-bold tracking-wide">Restaurant Merchant Terminal</span>
+              <span className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Live SSE Synced</span>
             </div>
             <RestaurantDashboard
               initialRestaurantId={selectedRestaurantId}
