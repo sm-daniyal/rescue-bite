@@ -3,7 +3,10 @@ import {
   CheckCircle2,
   ChevronDown,
   ChevronUp,
+  Clock,
+  MapPin,
   Sparkles,
+  Star,
 } from 'lucide-react'
 import type { FlashDeal } from '../lib/api'
 import { getFoodImage } from '../lib/foodImages'
@@ -64,143 +67,164 @@ export const DealCard: React.FC<DealCardProps> = ({
   const estimatedFuelCost = 12
   const netSavings = Math.max(0, grossSavings - estimatedFuelCost)
   const isUrgent = !timeLeft.isExpired && timeLeft.minutes < 10
+  const isVeg = deal.item?.is_vegetarian ?? false
 
   const imageUrl = getFoodImage(deal.item?.name ?? '', deal.item?.category ?? '')
 
   return (
-    <div className="group rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-xs transition-all duration-150 hover:border-slate-300 hover:shadow-md">
-      <div className="flex items-start gap-3.5">
-        {/* Food Thumbnail (Square with rounded corners) */}
-        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-slate-100 border border-slate-100">
-          <img
-            src={imageUrl}
-            alt={deal.item?.name ?? 'Surplus meal'}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-          <span className="absolute bottom-1 right-1 rounded-md bg-black/60 px-1 py-0.5 text-[9px] font-bold text-white backdrop-blur-xs">
-            {discountPct}% OFF
+    <article className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.04] transition-shadow duration-200 hover:shadow-lg hover:ring-black/[0.08]">
+      {/* Hero food image */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+        <img
+          src={imageUrl}
+          alt={deal.item?.name ?? 'Surplus meal'}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+
+        {/* Gradient overlay at bottom for text readability */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/50 to-transparent" />
+
+        {/* Discount badge — top-left */}
+        <div className="absolute left-3 top-3 rounded-lg bg-[#e23744] px-2.5 py-1 shadow-md">
+          <span className="text-sm font-extrabold text-white">{discountPct}% OFF</span>
+        </div>
+
+        {/* Countdown badge — top-right */}
+        <div
+          className={`absolute right-3 top-3 flex items-center gap-1.5 rounded-lg px-2.5 py-1 shadow-md backdrop-blur-md ${
+            timeLeft.isExpired
+              ? 'bg-slate-800/70 text-slate-300'
+              : isUrgent
+              ? 'bg-red-600/90 text-white animate-pulse'
+              : 'bg-black/50 text-white'
+          }`}
+        >
+          <Clock className="h-3.5 w-3.5" />
+          <span className="text-xs font-bold tabular-nums tracking-wide">
+            {timeLeft.isExpired
+              ? 'Expired'
+              : `${String(timeLeft.minutes).padStart(2, '0')}:${String(timeLeft.seconds).padStart(2, '0')}`}
           </span>
         </div>
 
-        {/* Core Content */}
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              {/* Category & Veg Symbol */}
-              <div className="flex items-center gap-1.5 text-[10px] font-medium text-slate-400">
-                <span
-                  className={`inline-flex h-3 w-3 shrink-0 items-center justify-center rounded-[2px] border ${
-                    deal.item?.is_vegetarian ? 'border-emerald-600' : 'border-rose-600'
-                  }`}
-                  title={deal.item?.is_vegetarian ? 'Vegetarian' : 'Non-Vegetarian'}
-                >
-                  <span
-                    className={`h-1.5 w-1.5 rounded-full ${
-                      deal.item?.is_vegetarian ? 'bg-emerald-600' : 'bg-rose-600'
-                    }`}
-                  />
-                </span>
-                <span>{deal.item?.category ?? 'Meal'}</span>
-                <span>•</span>
-                <span className="truncate">{deal.restaurant?.name ?? 'Partner Outlet'}</span>
-              </div>
-
-              {/* Title */}
-              <h4 className="mt-0.5 truncate text-xs font-bold text-slate-900 leading-tight">
-                {deal.item?.name ?? 'Surplus Package'}
-              </h4>
-            </div>
-
-            {/* Countdown Badge */}
-            <div
-              className={`shrink-0 rounded-md px-2 py-0.5 text-[10px] font-bold ${
-                timeLeft.isExpired
-                  ? 'bg-slate-100 text-slate-400'
-                  : isUrgent
-                  ? 'bg-rose-50 text-rose-700 animate-pulse'
-                  : 'bg-orange-50 text-orange-700'
+        {/* Veg/Non-veg indicator — bottom-left on image */}
+        <div className="absolute bottom-3 left-3 flex items-center gap-2">
+          <span
+            className={`inline-flex h-5 w-5 items-center justify-center rounded border-2 bg-white ${
+              isVeg ? 'border-emerald-600' : 'border-red-600'
+            }`}
+          >
+            <span
+              className={`h-2 w-2 rounded-full ${
+                isVeg ? 'bg-emerald-600' : 'bg-red-600'
               }`}
-            >
-              {timeLeft.isExpired ? (
-                'Expired'
-              ) : (
-                <span>
-                  {String(timeLeft.minutes).padStart(2, '0')}:
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </span>
-              )}
-            </div>
-          </div>
+            />
+          </span>
+        </div>
 
-          {/* Pricing & Net Fuel Math */}
-          <div className="mt-2 flex items-baseline justify-between border-t border-slate-100 pt-2">
-            <div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-sm font-extrabold text-slate-900">₹{discountedPrice}</span>
-                <span className="text-[11px] font-medium text-slate-400 line-through">₹{basePrice}</span>
-              </div>
-              <div className="text-[10px] font-medium text-emerald-700">
-                Net save: ₹{netSavings} <span className="text-slate-400">(-₹{estimatedFuelCost} fuel)</span>
-              </div>
-            </div>
-
-            {/* Reserve CTA */}
-            <div>
-              {isReserved ? (
-                <span className="inline-flex items-center gap-1 rounded-lg bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 border border-emerald-200">
-                  <CheckCircle2 className="h-3 w-3" />
-                  Reserved
-                </span>
-              ) : timeLeft.isExpired ? (
-                <span className="rounded-lg bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-400">
-                  Ended
-                </span>
-              ) : (
-                <button
-                  type="button"
-                  disabled={isReserving}
-                  onClick={() => onReserve?.(deal.id)}
-                  className="rounded-lg bg-orange-600 px-3 py-1.5 text-xs font-semibold text-white shadow-xs hover:bg-orange-700 active:scale-95 transition-all disabled:opacity-50"
-                >
-                  {isReserving ? 'Reserving...' : 'Reserve Hold'}
-                </button>
-              )}
-            </div>
-          </div>
+        {/* Restaurant distance — bottom-right on image */}
+        <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded-md bg-black/50 px-2 py-0.5 backdrop-blur-sm">
+          <MapPin className="h-3 w-3 text-white/80" />
+          <span className="text-[11px] font-medium text-white/90">2.1 km</span>
         </div>
       </div>
 
-      {/* Expandable AI Pricing Insight */}
-      {deal.gemini_reasoning_snippet && (
-        <div className="mt-2.5 border-t border-slate-100/80 pt-1.5">
-          <button
-            type="button"
-            onClick={() => setShowAiReasoning(!showAiReasoning)}
-            className="flex w-full items-center justify-between text-[10px] font-medium text-slate-400 hover:text-slate-600 transition-colors"
-          >
-            <span className="flex items-center gap-1">
-              <Sparkles className="h-2.5 w-2.5 text-orange-500" />
-              Dynamic Pricing Rationale
-            </span>
-            {showAiReasoning ? (
-              <ChevronUp className="h-2.5 w-2.5" />
-            ) : (
-              <ChevronDown className="h-2.5 w-2.5" />
-            )}
-          </button>
-
-          {showAiReasoning && (
-            <div className="mt-1.5 rounded-lg bg-slate-50 p-2 text-[11px] text-slate-600 leading-relaxed border border-slate-100">
-              <p>"{deal.gemini_reasoning_snippet}"</p>
-              <div className="mt-1 flex items-center justify-between text-[9px] text-slate-400 uppercase font-semibold">
-                <span>Model: Gemini Flash 1.5</span>
-                <span>Portion clearance confidence: 88%</span>
-              </div>
+      {/* Content */}
+      <div className="px-4 pb-4 pt-3">
+        {/* Title row */}
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <h3 className="truncate text-[15px] font-bold leading-snug text-slate-900">
+              {deal.item?.name ?? 'Surplus Package'}
+            </h3>
+            <div className="mt-0.5 flex items-center gap-1.5 text-[13px] text-slate-500">
+              <span className="truncate">{deal.restaurant?.name ?? 'Partner Outlet'}</span>
+              <span className="text-slate-300">|</span>
+              <span className="shrink-0">{deal.item?.category ?? 'Meal'}</span>
             </div>
+          </div>
+
+          {/* Rating badge */}
+          <div className="flex shrink-0 items-center gap-1 rounded-md bg-emerald-600 px-1.5 py-0.5">
+            <Star className="h-3 w-3 fill-white text-white" />
+            <span className="text-[11px] font-bold text-white">4.2</span>
+          </div>
+        </div>
+
+        {/* Price row */}
+        <div className="mt-3 flex items-end justify-between border-t border-slate-100 pt-3">
+          <div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-xl font-extrabold text-slate-900">
+                ₹{discountedPrice}
+              </span>
+              <span className="text-sm font-medium text-slate-400 line-through">
+                ₹{basePrice}
+              </span>
+            </div>
+            <div className="mt-0.5 flex items-center gap-1 text-[12px] font-medium text-emerald-600">
+              <span>You save ₹{netSavings}</span>
+              <span className="text-slate-300">|</span>
+              <span className="text-slate-400">-₹{estimatedFuelCost} fuel</span>
+            </div>
+          </div>
+
+          {/* Reserve CTA */}
+          {isReserved ? (
+            <span className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-50 px-4 py-2.5 text-[13px] font-bold text-emerald-700 ring-1 ring-emerald-200">
+              <CheckCircle2 className="h-4 w-4" />
+              Reserved
+            </span>
+          ) : timeLeft.isExpired ? (
+            <span className="rounded-xl bg-slate-100 px-4 py-2.5 text-[13px] font-semibold text-slate-400">
+              Ended
+            </span>
+          ) : (
+            <button
+              type="button"
+              disabled={isReserving}
+              onClick={() => onReserve?.(deal.id)}
+              className="min-h-[48px] rounded-xl bg-[#fc8019] px-5 py-2.5 text-[13px] font-bold text-white shadow-sm transition-all hover:bg-[#e67312] active:scale-[0.97] disabled:opacity-50"
+            >
+              {isReserving ? 'Reserving...' : 'Reserve Now'}
+            </button>
           )}
         </div>
-      )}
-    </div>
+
+        {/* AI Pricing Insight — expandable */}
+        {deal.gemini_reasoning_snippet && (
+          <div className="mt-3 border-t border-slate-100 pt-2.5">
+            <button
+              type="button"
+              onClick={() => setShowAiReasoning(!showAiReasoning)}
+              className="flex w-full items-center justify-between py-1 text-[12px] font-medium text-slate-400 transition-colors hover:text-slate-600"
+            >
+              <span className="flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                AI Pricing Rationale
+              </span>
+              {showAiReasoning ? (
+                <ChevronUp className="h-3.5 w-3.5" />
+              ) : (
+                <ChevronDown className="h-3.5 w-3.5" />
+              )}
+            </button>
+
+            {showAiReasoning && (
+              <div className="mt-2 rounded-xl bg-amber-50 p-3 ring-1 ring-amber-100">
+                <p className="text-[12px] leading-relaxed text-slate-700">
+                  &ldquo;{deal.gemini_reasoning_snippet}&rdquo;
+                </p>
+                <div className="mt-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+                  <span>Gemini Flash 1.5</span>
+                  <span>Clearance confidence: 88%</span>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </article>
   )
 }
